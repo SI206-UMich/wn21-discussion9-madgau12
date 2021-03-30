@@ -31,18 +31,25 @@ def findLetters(sentences):
     # initialize an empty list
     l_times = []
     # define the regular expression
-    
+    match_t = re.search('@\d\d?\s?(am|pm)',sentences).group(0)
 
     # loop through each sentence or phrase in sentences
-    
-
+    for sentence in sentences.split():
+        for phrase in sentence.split():
     # find all the words that match the regular expression in each sentence
-       
-
-    # loop through the found words and add the words to your empty list
-
+            if match_t != None:
+                l_times.append(match_t[1:])
+    return l_times
 
     #return the list of the last letter of all words that begin or end with a capital letter
+    cap_l = []
+    for sentence in sentences.split():
+        for wrd in sentence.split():
+            if re.search('(^[A-Z]|[A-Z]$)',wrd):
+                cap_l.append(wrd[-1])
+    return cap_l
+                
+
 
 
 

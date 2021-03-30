@@ -6,7 +6,13 @@ import unittest
 # Task 1: Get the URL that links to the Pokemon Charmander's webpage.
 # HINT: You will have to add https://pokemondb.net to the URL retrieved using BeautifulSoup
 def getCharmanderLink(soup):
-    pass
+    base_url = 'https://pokemondb.net'
+    ending = '/pokedex/charmander'
+    r = requests.get(url+ending)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    return soup
+
+
 
 # Task 2: Get the details from the box below "Egg moves". Get all the move names and store
 #         them into a list. The function should return that list of moves.
